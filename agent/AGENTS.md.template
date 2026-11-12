@@ -1,0 +1,89 @@
+# AGENTS.md — <project name>
+
+> Read this before touching code. It is the short version of everything that cost
+> time to learn. Deeper context: `docs/spec.md` (what it is), `docs/plan.md` (order),
+> `docs/constitution.md` (rules), `docs/REGRESSIONS.md` (bugs we already fixed).
+
+## 0. Four golden rules
+
+1. **Read the real file before editing it.** Conversation summaries go stale;
+   open the file and confirm current state.
+2. **Never claim success without evidence.** Run it, paste the output. "Should work"
+   is not done.
+3. **Fix the class of bug, not the instance.** General parser, general guard.
+4. **Stay in scope.** Change only what the task packet names. Offer the rest.
+
+## 1. What this project is
+
+<2–3 sentences. Enough that an agent understands the domain before writing code.>
+
+## 2. Map
+
+```text
+<top-level directories with one-line purposes>
+```
+
+## 3. Commands
+
+```bash
+# install
+<cmd>
+
+# run (dev)
+<cmd>
+
+# test — the only definition of "working"
+<cmd>
+
+# lint / typecheck
+<cmd>
+
+# build
+<cmd>
+```
+
+## 4. Where things live
+
+| Concern | File |
+|---|---|
+| Config / env | `<path>` |
+| Entry point | `<path>` |
+| Data model | `<path>` |
+| Tests | `<path>` |
+| Docs | `docs/` |
+
+## 5. Hard rules (non-negotiable)
+
+- Never print, log, or commit a secret. Env var names only.
+- Never edit `docs/intent.md`, `docs/spec.md`, or `docs/plan.md` — propose a change instead.
+- Never touch production, run a migration, or delete data without explicit approval.
+- Never add a dependency without stating why and showing the lockfile diff.
+- Never mark a task done without the packet's verification command passing.
+- <project-specific invariant 1>
+- <project-specific invariant 2>
+
+## 6. Known traps
+
+Every entry here was a real bug. Symptom → cause → rule.
+
+| Symptom | Cause | Rule |
+|---|---|---|
+| <symptom> | <cause> | <what to do instead> |
+
+## 7. Verification playbook
+
+```bash
+# the smoke tests an agent should run after any change
+<cmd>
+<cmd>
+```
+
+## 8. When to stop and ask
+
+- Two approved documents contradict each other.
+- A requirement has no testable interpretation.
+- A file outside the packet must change.
+- A test fails and the fix would exceed scope.
+- The next action is irreversible, external, or touches production.
+
+Otherwise: resolve it by reading the code, and keep going.
