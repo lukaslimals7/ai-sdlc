@@ -10,7 +10,7 @@ narrates.
 - Arjun — solo developer, one-person company
 - Vidya — an AI study companion for students in classes 6–10: answers
   questions, explains concepts, generates practice questions
-- Stack — Python + FastAPI, SQLite, DeepSeek API for the model
+- Stack — Python + FastAPI, SQLite, Frontier model  API for the model
 - Kit — Level 3 (full adoption): scaffolding, gate, pre-commit hook,
   `AGENTS.md`, cold-context review
 
@@ -76,7 +76,7 @@ Out — and we will say no to these even when they're easy:
 ## 7. Constraints
 | Type | Constraint |
 |---|---|
-| Tech | FastAPI + SQLite; DeepSeek API; must run on a 2 vCPU VM in India |
+| Tech | FastAPI + SQLite; Frontier model  API; must run on a 2 vCPU VM in India |
 | Money | ₹2,000/month model budget |
 | Legal | Students may be minors: no PII stored, no personal data in prompts |
 ```
@@ -90,14 +90,14 @@ other.
 
 ---
 
-## Step 2 — Phase 2 Spike: kill the DeepSeek unknowns
+## Step 2 — Phase 2 Spike: kill the Frontier model  unknowns
 
 He pastes `agent/prompts/02-spike.md`. The agent decomposes the risks into a
 table, ordered by what is most likely to kill the idea:
 
 | # | Question | Risk if wrong | Est. |
 |---|---|---|---|
-| 1 | Given a student's question, when we call DeepSeek, then does it return a valid JSON explanation in under 10 s? | architecture: we need a parser and a retry policy | 2 h |
+| 1 | Given a student's question, when we call Frontier model , then does it return a valid JSON explanation in under 10 s? | architecture: we need a parser and a retry policy | 2 h |
 | 2 | What does an explanation actually cost at our volume? | the budget dies | 30 min |
 | 3 | Can a student break it with prompt injection ("ignore previous instructions")? | safety + trust | 1 h |
 | 4 | Does the model explain well in the languages these students speak? | core value | 1 h |
@@ -105,7 +105,7 @@ table, ordered by what is most likely to kill the idea:
 Arjun picks 1 and 3 — the ones that would change the architecture. Number 2 is
 skipped after reading the pricing docs, exactly as the kit tells him to.
 
-**Spike 001 — JSON contract.** A throwaway script in `spikes/001-deepseek-json/`.
+**Spike 001 — JSON contract.** A throwaway script in `spikes/001-Frontier model -json/`.
 Hardcoded prompt, prints the raw response:
 
 ```markdown
@@ -124,7 +124,7 @@ Hardcoded prompt, prints the raw response:
   missed it entirely.
 
 ### Recommendation for the real build
-- Use deepseek-chat, not R1, for explanations. Strip fences, validate against a
+- Use Frontier model -chat, not R1, for explanations. Strip fences, validate against a
   schema, retry once on parse failure, then fall back to a plain-text answer.
 ```
 
@@ -184,7 +184,7 @@ The resulting `docs/spec.md`:
   data, never as instructions.
 
 ## 9. AI behavior
-- Model: deepseek-chat. R1 excluded for the explanation path (spike 001).
+- Model: Frontier model -chat. R1 excluded for the explanation path (spike 001).
 - Tools: none in v1 — the model answers from its own knowledge.
 - Output contract: JSON {explanation, topic, confidence}. Schema-validated,
   one retry, then fallback.
@@ -223,7 +223,7 @@ decomposes the rest:
 ## 2. Foundations
 | ID | Foundation | Unlocks | Verify by |
 |---|---|---|---|
-| EN-001 | Config + DeepSeek client wrapper (retry, fence stripping, spend log) | TASK-001..005 | `pytest tests/test_client.py -q` |
+| EN-001 | Config + Frontier model  client wrapper (retry, fence stripping, spend log) | TASK-001..005 | `pytest tests/test_client.py -q` |
 
 ## 3. Task packets
 ### TASK-001 — /explain endpoint + tests
