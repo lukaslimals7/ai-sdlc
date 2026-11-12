@@ -50,7 +50,7 @@ reading it. No phase starts from a conversation.
 
 ```bash
 # 1. scaffold a workspace for a new initiative (creates docs/, spikes/, reports/)
-python3 tools/new_initiative.py "quiz-export-offline" --repo ~/Desktop/gyaanix-teacher-ai
+python3 tools/new_initiative.py "quiz-export-offline" --repo ~/Desktop/quiz-maker
 
 # 2. fill docs/intent.md with the agent (prompt: agent/prompts/01-intent.md)
 # 3. gate it
