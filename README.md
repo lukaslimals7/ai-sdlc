@@ -23,6 +23,7 @@ or a bare `hermes chat -q`. The artifacts are markdown; the runtime is replaceab
 | `tools/new_initiative.py` | Scaffolds `docs/`, `spikes/`, `AGENTS.md` in an existing repo | Once per initiative |
 | `tools/install_gate_hook.sh` | Makes the gate a pre-commit hook | Once per repo |
 | `examples/demo-workspace/` | A small real initiative, filled in end to end | When the templates feel abstract |
+| `examples/student-ai-scenario.md` | A narrative walkthrough: an AI study assistant built with DeepSeek, phase by phase | When you want to see the whole journey |
 
 ---
 

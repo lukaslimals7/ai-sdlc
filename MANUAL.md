@@ -60,12 +60,16 @@ ai-sdlc/
 │   ├── new_initiative.py     scaffolds a workspace inside an existing repo
 │   └── install_gate_hook.sh  makes the gate a pre-commit hook
 └── examples/
-    └── demo-workspace/       a complete, gate-clean initiative
+    ├── demo-workspace/         a complete, gate-clean initiative
+    └── student-ai-scenario.md  a narrative walkthrough: an AI study assistant
+                                built end to end with the kit
 ```
 
 When the templates feel abstract, read `examples/demo-workspace/` — a real
 initiative filled in end to end, which passes the gate with 0 errors and
-0 warnings.
+0 warnings. When you want to see the whole journey of a real app, read
+`examples/student-ai-scenario.md` — a study assistant built with DeepSeek,
+phase by phase, from interview to incident.
 
 ### 1.2 Pick your adoption level
 
